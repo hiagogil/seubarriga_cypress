@@ -1,9 +1,17 @@
 describe('Login', () => {
-    it('Realizar login com sucesso', () => {
+    beforeEach(() => {
         cy.visit('login')
-        cy.get('#email').type('Jude_Fahey59@hotmail.com')           
-        cy.get('#senha').type('gbQDAJVwwCeCjX0')
+    });
+    it('Realizar login com sucesso', () => {
+    cy.Login()
+    });
+
+
+    it('Login inválido', () => {
+        cy.visit('login')
+        cy.get('#email').type('Jude_Faheewewewey59@hotmail.com')           
+        cy.get('#senha').type('gbQDAJVwwCeewewewewCjX0')
         cy.get('.btn').click()
-        cy.get('.alert').should('have.text', 'Bem vindo, Julia_Smitham!')
+        cy.get('.alert').should('have.text', 'Problemas com o login do usuário')
     });
 });
